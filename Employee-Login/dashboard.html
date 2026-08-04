@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Employee Dashboard</title>
+
+  <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+
+
+  <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+
+      <img src="assets/images/logo.png" alt="EnterpriseHub Logo">
+
+    </div>
+
+
+    <nav>
+
+      <a href="dashboard.html" class="nav-item active">
+        <span>▦</span>
+        Dashboard
+      </a>
+
+      <a href="employees.html" class="nav-item">
+        <span>👥</span>
+        Employee Management
+      </a>
+
+      <a href="pages/attendance.html" class="nav-item">
+        <span>🕐</span>
+        Attendance
+      </a>
+
+      <a href="pages/leave.html" class="nav-item">
+        <span>📅</span>
+        Leave
+      </a>
+
+      <a href="pages/payroll.html" class="nav-item">
+        <span>💳</span>
+        Payroll
+      </a>
+
+      <a href="pages/crm.html" class="nav-item">
+        <span>💼</span>
+        CRM
+      </a>
+
+      <a href="pages/finance.html" class="nav-item">
+        <span>₹</span>
+        Finance
+      </a>
+
+    </nav>
+
+
+    <button class="logout-button" id="logoutButton">
+      Logout
+    </button>
+
+  </aside>
+
+
+  <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+  <main class="main-content">
+
+    <header class="topbar">
+
+      <button class="menu-button" id="menuButton">
+        ☰
+      </button>
+
+      <div class="topbar-right">
+
+        <div class="notification">
+          🔔
+        </div>
+
+        <div class="profile">
+
+          <div class="profile-avatar">
+            A
+          </div>
+
+          <div>
+            <strong id="userName">
+              Admin User
+            </strong>
+
+            <small>
+              Administrator
+            </small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+
+      <div class="welcome-section">
+
+        <div>
+
+          <p class="welcome-label">
+            EMPLOYEE PORTAL
+          </p>
+
+          <h1>
+            Welcome,
+            <span id="welcomeName">
+              Admin User
+            </span>
+          </h1>
+
+          <p>
+            Here's an overview of your
+            enterprise management portal.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Navigation Cards -->
+
+      <div class="section-header">
+
+        <h2>
+          Management Modules
+        </h2>
+
+        <p>
+          Select a module to continue
+        </p>
+
+      </div>
+
+
+      <div class="module-grid">
+
+
+        <!-- Employee Management -->
+
+        <a href="employees.html" class="module-card">
+
+          <div class="module-icon employee">
+            👥
+          </div>
+
+          <div class="module-content">
+
+            <h3>
+              Employee Management
+            </h3>
+
+            <p>
+              Manage employee information,
+              profiles and organizational data.
+            </p>
+
+          </div>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <!-- Attendance -->
+
+        <a href="pages/attendance.html" class="module-card">
+
+          <div class="module-icon attendance">
+            🕐
+          </div>
+
+          <div class="module-content">
+
+            <h3>
+              Attendance
+            </h3>
+
+            <p>
+              Track employee attendance,
+              working hours and schedules.
+            </p>
+
+          </div>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <!-- Leave -->
+
+        <a href="pages/leave.html" class="module-card">
+
+          <div class="module-icon leave">
+            📅
+          </div>
+
+          <div class="module-content">
+
+            <h3>
+              Leave
+            </h3>
+
+            <p>
+              Manage leave requests,
+              balances and approvals.
+            </p>
+
+          </div>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <!-- Payroll -->
+
+        <a href="pages/payroll.html" class="module-card">
+
+          <div class="module-icon payroll">
+            💳
+          </div>
+
+          <div class="module-content">
+
+            <h3>
+              Payroll
+            </h3>
+
+            <p>
+              View salary information,
+              payroll records and benefits.
+            </p>
+
+          </div>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <!-- CRM -->
+
+        <a href="pages/crm.html" class="module-card">
+
+          <div class="module-icon crm">
+            💼
+          </div>
+
+          <div class="module-content">
+
+            <h3>
+              CRM
+            </h3>
+
+            <p>
+              Manage customers, relationships
+              and business interactions.
+            </p>
+
+          </div>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <!-- Finance -->
+
+        <a href="pages/finance.html" class="module-card">
+
+          <div class="module-icon finance">
+            ₹
+          </div>
+
+          <div class="module-content">
+
+            <h3>
+              Finance
+            </h3>
+
+            <p>
+              Manage financial records,
+              expenses and transactions.
+            </p>
+
+          </div>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

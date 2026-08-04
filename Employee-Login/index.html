@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Employee Portal - Login</title>
+
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+  <div class="login-container">
+
+    <!-- Left Section -->
+    <div class="login-brand">
+
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="EnterpriseHub Logo">
+      </div>
+
+      <div class="brand-content">
+        <h1>Employee Portal</h1>
+
+        <p>
+          Manage your work, attendance, leave,
+          payroll and employee information from one
+          secure platform.
+        </p>
+      </div>
+
+      <div class="brand-footer">
+        <p>© 2026 EnterpriseHub. All rights reserved.</p>
+      </div>
+
+    </div>
+
+
+    <!-- Right Section -->
+    <div class="login-section">
+
+      <div class="login-card">
+
+        <div class="mobile-logo">
+          <img src="assets/images/logo.png" alt="EnterpriseHub Logo">
+        </div>
+
+        <div class="login-header">
+          <h2>Welcome Back</h2>
+
+          <p>
+            Sign in to access your employee dashboard.
+          </p>
+        </div>
+
+
+        <!-- Login Form -->
+        <form id="loginForm">
+
+          <!-- Employee ID -->
+          <div class="form-group">
+
+            <label for="employeeId">
+              Employee ID / Email
+            </label>
+
+            <input type="text" id="employeeId" name="employeeId" placeholder="Enter employee ID or email"
+              autocomplete="username" required>
+
+          </div>
+
+
+          <!-- Password -->
+          <div class="form-group">
+
+            <label for="password">
+              Password
+            </label>
+
+            <div class="password-container">
+
+              <input type="password" id="password" name="password" placeholder="Enter your password"
+                autocomplete="current-password" required>
+
+              <button type="button" id="togglePassword" class="password-toggle">
+                Show
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- Remember / Forgot -->
+          <div class="login-options">
+
+            <label class="remember-me">
+
+              <input type="checkbox" id="rememberMe">
+
+              <span>Remember Me</span>
+
+            </label>
+
+            <a href="#" id="forgotPassword">
+              Forgot Password?
+            </a>
+
+          </div>
+
+
+          <!-- Error Message -->
+          <div id="errorMessage" class="error-message">
+            Invalid Credentials
+          </div>
+
+
+          <!-- Login Button -->
+          <button type="submit" class="login-button">
+            Login
+          </button>
+
+        </form>
+
+
+        <div class="demo-info">
+
+          <strong>Demo Credentials</strong>
+
+          <p>
+            Employee ID: <b>admin</b>
+          </p>
+
+          <p>
+            Password: <b>admin123</b>
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/login.js"></script>
+
+</body>
+
+</html>
