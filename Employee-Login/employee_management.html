@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Employee Management</title>
+
+  <!-- IMPORTANT: Your folder is CSS, not css -->
+  <link rel="stylesheet" href="CSS/employee.css">
+
+</head>
+
+<body>
+
+  <!-- ================================
+         NAVBAR
+    ================================= -->
+
+  <header class="navbar">
+
+    <div class="logo">
+      Employee Management System
+    </div>
+
+    <nav>
+
+      <a href="dashboard.html">
+        Dashboard
+      </a>
+
+      <a href="employee_management.html">
+        Employees
+      </a>
+
+      <a href="index.html">
+        Logout
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+  <main class="employee-container">
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+      <div>
+
+        <h1>
+          Employee Management
+        </h1>
+
+        <p>
+          Create, view, update and delete employees
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================================
+             EMPLOYEE FORM
+        ================================= -->
+
+    <section class="form-card">
+
+      <h2 id="formTitle">
+        Add Employee
+      </h2>
+
+
+      <form id="employeeForm">
+
+
+        <div class="form-grid">
+
+
+          <!-- Employee ID -->
+
+          <div class="form-group">
+
+            <label for="employeeId">
+              Employee ID
+            </label>
+
+            <input type="text" id="employeeId" placeholder="EMP001" required>
+
+          </div>
+
+
+          <!-- Employee Name -->
+
+          <div class="form-group">
+
+            <label for="employeeName">
+              Employee Name
+            </label>
+
+            <input type="text" id="employeeName" placeholder="Enter employee name" required>
+
+          </div>
+
+
+          <!-- Department -->
+
+          <div class="form-group">
+
+            <label for="department">
+              Department
+            </label>
+
+            <input type="text" id="department" placeholder="IT" required>
+
+          </div>
+
+
+          <!-- Designation -->
+
+          <div class="form-group">
+
+            <label for="designation">
+              Designation
+            </label>
+
+            <input type="text" id="designation" placeholder="Software Developer" required>
+
+          </div>
+
+
+          <!-- Email -->
+
+          <div class="form-group">
+
+            <label for="email">
+              Email
+            </label>
+
+            <input type="email" id="email" placeholder="employee@example.com" required>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="form-actions">
+
+          <button type="submit" id="submitButton" class="add-btn">
+            Add Employee
+          </button>
+
+
+          <button type="button" id="cancelButton" class="cancel-btn">
+            Cancel
+          </button>
+
+        </div>
+
+
+      </form>
+
+    </section>
+
+
+    <!-- ================================
+             EMPLOYEE COUNT
+        ================================= -->
+
+    <section class="employee-summary">
+
+      <h2>
+
+        Total Employees :
+
+        <span id="employeeCount">
+          0
+        </span>
+
+      </h2>
+
+    </section>
+
+
+    <!-- ================================
+             EMPLOYEE TABLE
+        ================================= -->
+
+    <section class="table-card">
+
+      <h2>
+        Employee List
+      </h2>
+
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>
+                ID
+              </th>
+
+              <th>
+                Name
+              </th>
+
+              <th>
+                Department
+              </th>
+
+              <th>
+                Designation
+              </th>
+
+              <th>
+                Email
+              </th>
+
+              <th>
+                Actions
+              </th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody id="employeeTableBody">
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <p id="emptyMessage" class="empty-message">
+        No employees available.
+      </p>
+
+
+    </section>
+
+
+  </main>
+
+
+  <!-- IMPORTANT: Your folder is JS, not js -->
+  <script src="JS/employee.js"></script>
+
+</body>
+
+</html>
