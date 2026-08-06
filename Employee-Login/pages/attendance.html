@@ -2,65 +2,14 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Attendance</title>
+  <title>Attendance Management</title>
 
-  <style>
-    body {
-      margin: 0;
-
-      font-family: Arial, sans-serif;
-
-      background: #f5f7fa;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      min-height: 100vh;
-    }
-
-    .container {
-      text-align: center;
-
-      background: white;
-
-      padding: 50px;
-
-      border-radius: 15px;
-
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.08);
-    }
-
-    h1 {
-      color: #102a43;
-    }
-
-    p {
-      color: #718096;
-    }
-
-    a {
-      display: inline-block;
-
-      margin-top: 20px;
-
-      padding: 12px 20px;
-
-      background: #1f73b7;
-
-      color: white;
-
-      text-decoration: none;
-
-      border-radius: 7px;
-    }
-  </style>
+  <link rel="stylesheet" href="../CSS/attendance.css">
 
 </head>
 
@@ -68,17 +17,161 @@
 
   <div class="container">
 
-    <h1>Attendance</h1>
+    <!-- Header -->
 
-    <p>
-      Attendance module coming soon.
-    </p>
+    <header class="page-header">
 
-    <a href="../dashboard.html">
-      Back to Dashboard
-    </a>
+      <div>
+
+        <h1>Employee Attendance Management</h1>
+
+        <p id="currentDate"></p>
+
+      </div>
+
+      <a href="../dashboard.html" class="dashboard-btn">
+
+        ← Back to Dashboard
+
+      </a>
+
+    </header>
+
+    <!-- Summary Cards -->
+
+    <section class="summary-container">
+
+      <div class="summary-card">
+
+        <h3>Total Employees</h3>
+
+        <h2 id="totalEmployees">0</h2>
+
+      </div>
+
+      <div class="summary-card present-card">
+
+        <h3>Present</h3>
+
+        <h2 id="presentCount">0</h2>
+
+      </div>
+
+      <div class="summary-card absent-card">
+
+        <h3>Absent</h3>
+
+        <h2 id="absentCount">0</h2>
+
+      </div>
+
+      <div class="summary-card halfday-card">
+
+        <h3>Half Day</h3>
+
+        <h2 id="halfDayCount">0</h2>
+
+      </div>
+
+      <div class="summary-card wfh-card">
+
+        <h3>Work From Home</h3>
+
+        <h2 id="wfhCount">0</h2>
+
+      </div>
+
+    </section>
+
+    <!-- Search & Filters -->
+
+    <section class="filter-container">
+
+      <input type="text" id="searchInput" placeholder="Search by Employee ID or Name">
+
+      <select id="departmentFilter">
+
+        <option value="">
+          All Departments
+        </option>
+
+        <option value="IT">
+          IT
+        </option>
+
+        <option value="HR">
+          HR
+        </option>
+
+        <option value="Finance">
+          Finance
+        </option>
+
+      </select>
+
+      <select id="statusFilter">
+
+        <option value="">All Attendance Status</option>
+
+        <option value="Present">Present</option>
+
+        <option value="Absent">Absent</option>
+
+        <option value="Half Day">Half Day</option>
+
+        <option value="WFH">Work From Home</option>
+
+        <option value="Not Marked">Not Marked</option>
+
+      </select>
+
+      <button id="resetBtn">
+
+        Reset Filters
+
+      </button>
+
+    </section>
+
+    <!-- Attendance Table -->
+
+    <section class="table-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Employee ID</th>
+
+            <th>Employee Name</th>
+
+            <th>Department</th>
+
+            <th>Select Attendance</th>
+
+            <th>Current Status</th>
+
+            <th>Actions</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="attendanceTable">
+
+        </tbody>
+
+      </table>
+
+    </section>
 
   </div>
+
+  <script src="../../Employee-Directory/js/employees.js"></script>
+
+  <script src="../js/attendance.js"></script>
 
 </body>
 

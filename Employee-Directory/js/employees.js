@@ -1,336 +1,153 @@
-// ========================================
-// EMPLOYEE DATA
-// ========================================
+"use strict";
 
 const employees = [
   {
-    id: 101,
-    name: "Rahul Sharma",
-    department: "Development",
-    designation: "Senior Developer",
+    id: "EMP001",
+    name: "Pavan Kumar",
+    department: "IT",
+    designation: "Java Developer",
+    email: "pavan@gmail.com",
     status: "Active",
-    photo: "https://i.pravatar.cc/150?img=12",
+    photo: "../assets/images/logo.png",
   },
 
   {
-    id: 102,
-    name: "Priya Reddy",
+    id: "EMP002",
+    name: "Rajesh Kumar",
     department: "HR",
     designation: "HR Manager",
+    email: "rajesh@gmail.com",
     status: "Active",
-    photo: "https://i.pravatar.cc/150?img=47",
+    photo: "../assets/images/logo.png",
   },
 
   {
-    id: 103,
-    name: "Arjun Kumar",
-    department: "Development",
-    designation: "Java Developer",
-    status: "Active",
-    photo: "https://i.pravatar.cc/150?img=11",
-  },
-
-  {
-    id: 104,
-    name: "Sneha Rao",
-    department: "CRM",
-    designation: "CRM Executive",
-    status: "On Leave",
-    photo: "https://i.pravatar.cc/150?img=32",
-  },
-
-  {
-    id: 105,
-    name: "Vikram Singh",
-    department: "Finance",
-    designation: "Financial Analyst",
-    status: "Active",
-    photo: "https://i.pravatar.cc/150?img=13",
-  },
-
-  {
-    id: 106,
-    name: "Ananya Reddy",
-    department: "Development",
-    designation: "Frontend Developer",
-    status: "Active",
-    photo: "https://i.pravatar.cc/150?img=44",
-  },
-
-  {
-    id: 107,
-    name: "Kiran Patel",
-    department: "CRM",
-    designation: "CRM Manager",
-    status: "Active",
-    photo: "https://i.pravatar.cc/150?img=68",
-  },
-
-  {
-    id: 108,
-    name: "Meera Nair",
-    department: "HR",
-    designation: "HR Executive",
-    status: "Inactive",
-    photo: "https://i.pravatar.cc/150?img=45",
-  },
-
-  {
-    id: 109,
-    name: "Rohit Verma",
+    id: "EMP003",
+    name: "Anil Sharma",
     department: "Finance",
     designation: "Accountant",
+    email: "anil@gmail.com",
+    status: "Inactive",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP004",
+    name: "Sneha Reddy",
+    department: "IT",
+    designation: "Frontend Developer",
+    email: "sneha@gmail.com",
     status: "Active",
-    photo: "https://i.pravatar.cc/150?img=15",
+    photo: "../assets/images/logo.png",
   },
 
   {
-    id: 110,
-    name: "Divya Menon",
-    department: "Development",
-    designation: "Software Engineer",
+    id: "EMP005",
+    name: "Vikram Singh",
+    department: "IT",
+    designation: "Backend Developer",
+    email: "vikram@gmail.com",
     status: "Active",
-    photo: "https://i.pravatar.cc/150?img=49",
+    photo: "../assets/images/logo.png",
   },
 
   {
-    id: 111,
-    name: "Suresh Kumar",
-    department: "CRM",
-    designation: "Sales Executive",
-    status: "On Leave",
-    photo: "https://i.pravatar.cc/150?img=51",
-  },
-
-  {
-    id: 112,
-    name: "Kavya Sharma",
+    id: "EMP006",
+    name: "Priya Sharma",
     department: "HR",
     designation: "Recruiter",
+    email: "priya@gmail.com",
     status: "Active",
-    photo: "https://i.pravatar.cc/150?img=25",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP007",
+    name: "Arjun Reddy",
+    department: "Finance",
+    designation: "Financial Analyst",
+    email: "arjun@gmail.com",
+    status: "Active",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP008",
+    name: "Kiran Kumar",
+    department: "IT",
+    designation: "DevOps Engineer",
+    email: "kiran@gmail.com",
+    status: "Inactive",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP009",
+    name: "Divya Patel",
+    department: "Marketing",
+    designation: "Marketing Executive",
+    email: "divya@gmail.com",
+    status: "Active",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP010",
+    name: "Rahul Verma",
+    department: "IT",
+    designation: "Software Tester",
+    email: "rahul@gmail.com",
+    status: "Active",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP011",
+    name: "Neha Kapoor",
+    department: "Finance",
+    designation: "Finance Manager",
+    email: "neha@gmail.com",
+    status: "Active",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP012",
+    name: "Suresh Babu",
+    department: "HR",
+    designation: "HR Executive",
+    email: "suresh@gmail.com",
+    status: "Inactive",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP013",
+    name: "Manoj Kumar",
+    department: "IT",
+    designation: "Full Stack Developer",
+    email: "manoj@gmail.com",
+    status: "Active",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP014",
+    name: "Lakshmi Devi",
+    department: "Finance",
+    designation: "Account Assistant",
+    email: "lakshmi@gmail.com",
+    status: "Active",
+    photo: "../assets/images/logo.png",
+  },
+
+  {
+    id: "EMP015",
+    name: "Amit Joshi",
+    department: "Marketing",
+    designation: "Sales Executive",
+    email: "amit@gmail.com",
+    status: "Inactive",
+    photo: "../assets/images/logo.png",
   },
 ];
-
-// ========================================
-// DOM ELEMENTS
-// ========================================
-
-const employeeContainer = document.getElementById("employeeContainer");
-
-const searchInput = document.getElementById("searchInput");
-
-const departmentFilter = document.getElementById("departmentFilter");
-
-const resultCount = document.getElementById("resultCount");
-
-const noResults = document.getElementById("noResults");
-
-const logoutButton = document.getElementById("logoutButton");
-
-const menuButton = document.getElementById("menuButton");
-
-const sidebar = document.getElementById("sidebar");
-
-const userName = document.getElementById("userName");
-
-// ========================================
-// CHECK LOGIN SESSION
-// ========================================
-
-const loggedInUser = sessionStorage.getItem("employeeName");
-
-if (!loggedInUser) {
-  window.location.href = "index.html";
-} else {
-  userName.textContent = loggedInUser;
-}
-
-// ========================================
-// RENDER EMPLOYEES
-// ========================================
-
-function renderEmployees(employeeList) {
-  // Clear existing cards
-
-  employeeContainer.innerHTML = "";
-
-  // Update count
-
-  resultCount.textContent = `Showing ${employeeList.length} employee(s)`;
-
-  // No results
-
-  if (employeeList.length === 0) {
-    noResults.style.display = "block";
-
-    return;
-  }
-
-  noResults.style.display = "none";
-
-  // Create employee card for each employee
-
-  employeeList.forEach(function (employee) {
-    const employeeCard = document.createElement("div");
-
-    employeeCard.classList.add("employee-card");
-
-    employeeCard.innerHTML = `
-
-            <div class="employee-card-header">
-
-                <span class="employee-id">
-                    ID: ${employee.id}
-                </span>
-
-                <span class="
-                    status-badge
-                    ${getStatusClass(employee.status)}
-                ">
-                    ${employee.status}
-                </span>
-
-            </div>
-
-
-            <div class="employee-profile">
-
-                <img
-                    src="${employee.photo}"
-                    alt="${employee.name}"
-                    class="employee-photo"
-                >
-
-                <div class="employee-basic-info">
-
-                    <h3>
-                        ${employee.name}
-                    </h3>
-
-                    <p>
-                        ${employee.designation}
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="employee-details">
-
-                <div class="detail-item">
-
-                    <span class="detail-label">
-                        Department
-                    </span>
-
-                    <span class="detail-value">
-                        ${employee.department}
-                    </span>
-
-                </div>
-
-
-                <div class="detail-item">
-
-                    <span class="detail-label">
-                        Employee ID
-                    </span>
-
-                    <span class="detail-value">
-                        #${employee.id}
-                    </span>
-
-                </div>
-
-            </div>
-
-        `;
-
-    employeeContainer.appendChild(employeeCard);
-  });
-}
-
-// ========================================
-// STATUS CLASS
-// ========================================
-
-function getStatusClass(status) {
-  if (status === "Active") {
-    return "active";
-  }
-
-  if (status === "On Leave") {
-    return "leave";
-  }
-
-  return "inactive";
-}
-
-// ========================================
-// SEARCH + FILTER
-// ========================================
-
-function filterEmployees() {
-  const searchValue = searchInput.value.trim().toLowerCase();
-
-  const departmentValue = departmentFilter.value;
-
-  // filter() creates a new array
-
-  const filteredEmployees = employees.filter(function (employee) {
-    // Search by name
-
-    const matchesSearch = employee.name.toLowerCase().includes(searchValue);
-
-    // Department filter
-
-    const matchesDepartment =
-      departmentValue === "all" || employee.department === departmentValue;
-
-    // Employee must satisfy both
-
-    return matchesSearch && matchesDepartment;
-  });
-
-  renderEmployees(filteredEmployees);
-}
-
-// ========================================
-// SEARCH EVENT
-// ========================================
-
-searchInput.addEventListener("input", filterEmployees);
-
-// ========================================
-// DEPARTMENT FILTER EVENT
-// ========================================
-
-departmentFilter.addEventListener("change", filterEmployees);
-
-// ========================================
-// LOGOUT
-// ========================================
-
-logoutButton.addEventListener("click", function () {
-  sessionStorage.removeItem("employeeName");
-
-  sessionStorage.removeItem("employeeId");
-
-  window.location.href = "index.html";
-});
-
-// ========================================
-// MOBILE SIDEBAR
-// ========================================
-
-menuButton.addEventListener("click", function () {
-  sidebar.classList.toggle("open");
-});
-
-// ========================================
-// INITIAL RENDER
-// ========================================
-
-renderEmployees(employees);
