@@ -1,29 +1,34 @@
 "use strict";
 
 /*
-========================================================
+==================================================
 SHARED LEAVE DATA
-========================================================
-Used by:
+==================================================
 
+Used by:
 1. Leave Request
 2. Leave Approval
 3. HR Dashboard
 4. Employee Profile
 
-Data is stored in localStorage so it survives
-page navigation and browser refresh.
-========================================================
+Data is stored in localStorage so all pages
+can access the same leave requests.
 */
 
 const LEAVE_STORAGE_KEY = "employeeLeaveRequests";
 
+/*
+==================================================
+LOAD LEAVE REQUESTS
+==================================================
+*/
+
 let leaveRequests = JSON.parse(localStorage.getItem(LEAVE_STORAGE_KEY)) || [];
 
 /*
-========================================================
+==================================================
 SAVE LEAVE REQUESTS
-========================================================
+==================================================
 */
 
 function saveLeaveRequests() {
@@ -31,16 +36,16 @@ function saveLeaveRequests() {
 }
 
 /*
-========================================================
+==================================================
 GENERATE LEAVE ID
-========================================================
+==================================================
 */
 
 function generateLeaveId() {
   let maxNumber = 0;
 
   leaveRequests.forEach(function (leave) {
-    const match = String(leave.id).match(/^LR(\d+)$/);
+    const match = String(leave.id || "").match(/^LR(\d+)$/);
 
     if (match) {
       const number = parseInt(match[1], 10);
@@ -55,9 +60,9 @@ function generateLeaveId() {
 }
 
 /*
-========================================================
+==================================================
 CALCULATE LEAVE DAYS
-========================================================
+==================================================
 */
 
 function calculateLeaveDays(fromDate, toDate) {
@@ -79,21 +84,21 @@ function calculateLeaveDays(fromDate, toDate) {
 }
 
 /*
-========================================================
+==================================================
 GET LEAVE BY ID
-========================================================
+==================================================
 */
 
 function getLeaveById(leaveId) {
   return leaveRequests.find(function (leave) {
-    return leave.id === leaveId;
+    return String(leave.id) === String(leaveId);
   });
 }
 
 /*
-========================================================
+==================================================
 UPDATE LEAVE STATUS
-========================================================
+==================================================
 */
 
 function updateLeaveStatus(leaveId, status) {
@@ -113,9 +118,9 @@ function updateLeaveStatus(leaveId, status) {
 }
 
 /*
-========================================================
+==================================================
 GET LEAVE COUNTS
-========================================================
+==================================================
 */
 
 function getLeaveCounts() {
@@ -134,43 +139,51 @@ function getLeaveCounts() {
 }
 
 /*
-========================================================
+==================================================
 GET EMPLOYEE LEAVE HISTORY
-========================================================
+==================================================
 */
 
 function getEmployeeLeaveHistory(employeeId) {
   return leaveRequests
-    .filter(
-      (leave) =>
+
+    .filter(function (leave) {
+      return (
         String(leave.employeeId).toLowerCase() ===
-        String(employeeId).toLowerCase(),
-    )
-    .sort((a, b) => new Date(b.appliedOn) - new Date(a.appliedOn));
+        String(employeeId).toLowerCase()
+      );
+    })
+
+    .sort(function (a, b) {
+      return new Date(b.appliedOn) - new Date(a.appliedOn);
+    });
 }
 
 /*
-========================================================
+==================================================
 GET APPROVED LEAVE DAYS
-========================================================
+==================================================
 */
 
 function getApprovedLeaveDays(employeeId) {
   return leaveRequests
-    .filter(
-      (leave) =>
+
+    .filter(function (leave) {
+      return (
         String(leave.employeeId).toLowerCase() ===
-          String(employeeId).toLowerCase() && leave.status === "Approved",
-    )
+          String(employeeId).toLowerCase() && leave.status === "Approved"
+      );
+    })
+
     .reduce(function (total, leave) {
       return total + Number(leave.totalDays || 0);
     }, 0);
 }
 
 /*
-========================================================
-GET CURRENT LEAVES
-========================================================
+==================================================
+GET EMPLOYEES CURRENTLY ON LEAVE
+==================================================
 */
 
 function getEmployeesCurrentlyOnLeave() {
@@ -192,9 +205,9 @@ function getEmployeesCurrentlyOnLeave() {
 }
 
 /*
-========================================================
+==================================================
 GLOBAL ACCESS
-========================================================
+==================================================
 */
 
 window.leaveRequests = leaveRequests;

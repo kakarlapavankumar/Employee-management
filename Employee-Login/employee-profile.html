@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -7,11 +8,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Employee Profile</title>
+  <title>Employee Profile & Reports</title>
 
-
-  <link rel="stylesheet" href="CSS/employee-profile.css">
-
+  <link rel="stylesheet" href="css/employee-profile.css">
 
 </head>
 
@@ -19,248 +18,436 @@
 <body>
 
 
-  <div class="container">
+  <main class="page-container">
 
 
-    <header class="header">
+    <!-- ==================================================
+         HEADER
+    =================================================== -->
 
-      <h1>
-        Employee Profile & Reports
-      </h1>
+    <header class="page-header">
 
+      <div class="header-left">
 
-      <a href="dashboard.html">
-        Back to Dashboard
-      </a>
+        <div class="header-icon">
+          👤
+        </div>
 
+        <div>
 
-    </header>
+          <h1>
+            Employee Profile
+          </h1>
 
+          <p>
+            Employee information, attendance and leave summary
+          </p>
 
-
-
-    <!-- EMPLOYEE PROFILE -->
-
-
-    <section class="profile-card">
-
-
-      <h2>
-        Employee Details
-      </h2>
-
-
-
-      <div id="employeeDetails" class="details-grid">
-
+        </div>
 
       </div>
 
 
+      <a href="dashboard.html" class="dashboard-button">
+        ← Dashboard
+      </a>
+
+    </header>
+
+
+    <!-- ==================================================
+         EMPLOYEE SUMMARY
+    =================================================== -->
+
+    <section class="employee-summary">
+
+      <div class="employee-avatar" id="employeeAvatar">
+        P
+      </div>
+
+
+      <div class="employee-heading">
+
+        <h2 id="employeeName">
+          Loading...
+        </h2>
+
+        <p id="employeeDesignation">
+          Loading...
+        </p>
+
+        <span class="status-badge" id="employeeStatus">
+          Active
+        </span>
+
+      </div>
 
     </section>
 
 
+    <!-- ==================================================
+         EMPLOYEE DETAILS
+    =================================================== -->
+
+    <section class="content-card">
+
+      <div class="section-heading">
+
+        <div>
+
+          <h2>
+            Employee Details
+          </h2>
+
+          <p>
+            Personal and employment information
+          </p>
+
+        </div>
+
+      </div>
 
 
+      <div class="details-grid">
 
 
-    <!-- LEAVE HISTORY -->
+        <div class="detail-box">
+
+          <span>
+            Employee ID
+          </span>
+
+          <strong id="employeeId">
+            -
+          </strong>
+
+        </div>
 
 
-    <section class="profile-card">
+        <div class="detail-box">
+
+          <span>
+            Full Name
+          </span>
+
+          <strong id="detailName">
+            -
+          </strong>
+
+        </div>
 
 
-      <h2>
-        Leave History
-      </h2>
+        <div class="detail-box">
+
+          <span>
+            Department
+          </span>
+
+          <strong id="department">
+            -
+          </strong>
+
+        </div>
 
 
+        <div class="detail-box">
 
-      <table>
+          <span>
+            Designation
+          </span>
 
+          <strong id="designation">
+            -
+          </strong>
 
-        <thead>
-
-          <tr>
-
-            <th>
-              Leave Type
-            </th>
-
-            <th>
-              From Date
-            </th>
-
-            <th>
-              To Date
-            </th>
-
-            <th>
-              Days
-            </th>
-
-            <th>
-              Status
-            </th>
+        </div>
 
 
-          </tr>
+        <div class="detail-box">
+
+          <span>
+            Email
+          </span>
+
+          <strong id="email">
+            -
+          </strong>
+
+        </div>
 
 
-        </thead>
+        <div class="detail-box">
+
+          <span>
+            Phone Number
+          </span>
+
+          <strong id="phone">
+            -
+          </strong>
+
+        </div>
 
 
+        <div class="detail-box">
 
-        <tbody id="leaveHistory">
+          <span>
+            Joining Date
+          </span>
+
+          <strong id="joiningDate">
+            -
+          </strong>
+
+        </div>
 
 
-        </tbody>
+        <div class="detail-box leave-balance-box">
+
+          <span>
+            Leave Balance
+          </span>
+
+          <strong id="leaveBalance">
+            20 Days
+          </strong>
+
+        </div>
 
 
-
-      </table>
-
+      </div>
 
     </section>
 
 
+    <!-- ==================================================
+         ATTENDANCE REPORT
+    =================================================== -->
 
+    <section class="content-card">
 
+      <div class="section-heading">
 
+        <div>
 
+          <h2>
+            Attendance Reports
+          </h2>
 
-    <!-- REPORT SECTION -->
+          <p>
+            Attendance and leave statistics
+          </p>
 
+        </div>
 
-    <section class="profile-card">
-
-
-      <h2>
-        Attendance Reports
-      </h2>
-
+      </div>
 
 
       <div class="report-grid">
 
 
-        <div class="report-box">
+        <div class="report-card">
 
-          <h3>
-            Total Working Days
-          </h3>
+          <div class="report-icon working-icon">
+            📅
+          </div>
 
-          <p id="workingDays">
-            0
-          </p>
+          <div>
 
-        </div>
+            <span>
+              Total Working Days
+            </span>
 
-
-
-
-        <div class="report-box">
-
-          <h3>
-            Present Days
-          </h3>
-
-          <p id="presentDays">
-            0
-          </p>
-
-        </div>
-
-
-
-
-
-        <div class="report-box">
-
-          <h3>
-            Leave Days
-          </h3>
-
-          <p id="leaveDays">
-            0
-          </p>
-
-        </div>
-
-
-
-
-
-        <div class="report-box">
-
-          <h3>
-            Attendance Percentage
-          </h3>
-
-          <p>
-            <span id="attendancePercentage">
+            <strong id="workingDays">
               0
-            </span>%
-          </p>
+            </strong>
+
+          </div>
 
         </div>
 
+
+        <div class="report-card">
+
+          <div class="report-icon present-icon">
+            ✓
+          </div>
+
+          <div>
+
+            <span>
+              Present Days
+            </span>
+
+            <strong id="presentDays">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+          <div class="report-icon leave-icon">
+            🏖
+          </div>
+
+          <div>
+
+            <span>
+              Leave Days
+            </span>
+
+            <strong id="leaveDays">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+          <div class="report-icon percentage-icon">
+            %
+          </div>
+
+          <div>
+
+            <span>
+              Attendance Percentage
+            </span>
+
+            <strong id="attendancePercentage">
+              0%
+            </strong>
+
+          </div>
+
+        </div>
 
 
       </div>
 
+    </section>
 
+
+    <!-- ==================================================
+         LEAVE HISTORY
+    =================================================== -->
+
+    <section class="content-card">
+
+      <div class="section-heading leave-heading">
+
+        <div>
+
+          <h2>
+            Leave History
+          </h2>
+
+          <p>
+            Leave requests submitted by this employee
+          </p>
+
+        </div>
+
+
+        <span class="record-count" id="recordCount">
+          0 Records
+        </span>
+
+      </div>
+
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>
+                Leave ID
+              </th>
+
+              <th>
+                Leave Type
+              </th>
+
+              <th>
+                From Date
+              </th>
+
+              <th>
+                To Date
+              </th>
+
+              <th>
+                Total Days
+              </th>
+
+              <th>
+                Reason
+              </th>
+
+              <th>
+                Status
+              </th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody id="leaveHistory">
+
+          </tbody>
+
+        </table>
+
+      </div>
 
     </section>
 
 
+    <!-- ==================================================
+         ACTIONS
+    =================================================== -->
 
+    <section class="profile-actions">
 
-
-
-
-    <div class="actions">
-
-
-      <button onclick="printProfile()">
-
-        Print Profile
-
+      <button type="button" class="print-button" onclick="printProfile()">
+        🖨 Print Profile
       </button>
 
 
-
-      <button onclick="downloadProfile()">
-
-        Download Profile
-
+      <button type="button" class="download-button" onclick="downloadProfile()">
+        ↓ Download Profile
       </button>
 
-
-    </div>
-
+    </section>
 
 
-
-  </div>
-
+  </main>
 
 
+  <!-- ==================================================
+       SHARED EMPLOYEE DATA
+  =================================================== -->
+
+  <script src="../Employee-Directory/js/employee-data.js"></script>
 
 
+  <!-- ==================================================
+       PROFILE LOGIC
+  =================================================== -->
 
-  <!-- Existing Data Files -->
-
-  <script src="JS/employee-data.js"></script>
-
-  <script src="JS/attendance.js"></script>
-
-  <script src="JS/leave-data.js"></script>
-
-
-  <script src="JS/employee-profile.js"></script>
-
+  <script src="js/employee-profile.js"></script>
 
 
 </body>

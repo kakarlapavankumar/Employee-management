@@ -9,157 +9,158 @@
 
   <title>Leave Approval Dashboard</title>
 
-  <link rel="stylesheet" href="../CSS/leave-approval.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS/leave-approval.css">
 
 </head>
 
 <body>
 
-  <!-- ==========================
-            HEADER
-    ========================== -->
+  <div class="container">
 
-  <header class="header">
+    <!-- HEADER -->
 
-    <div class="logo">
-
-      <img src="../Employee-Login/assets/images/logo.png" alt="Logo">
+    <header class="page-header">
 
       <div>
+        <h1>Leave Approval Dashboard</h1>
 
-        <h2>Employee Management</h2>
+        <p>
+          HR Leave Request Management
+        </p>
+      </div>
 
-        <p>HR Leave Approval Dashboard</p>
+      <div class="header-actions">
+
+        <a href="leave-management.html">
+          Apply Leave
+        </a>
+
+        <a href="hr-dashboard.html">
+          HR Dashboard
+        </a>
+
+        <a href="dashboard.html">
+          Dashboard
+        </a>
 
       </div>
 
-    </div>
+    </header>
 
-    <div class="header-right">
 
-      <span id="currentDate"></span>
+    <!-- SUMMARY CARDS -->
 
-    </div>
+    <section class="summary-grid">
 
-  </header>
+      <div class="summary-card pending-card">
 
-  <!-- ==========================
-            MAIN
-    ========================== -->
+        <h3>
+          Pending Requests
+        </h3>
 
-  <main class="container">
-
-    <div class="page-title">
-
-      <h1>Leave Approval Dashboard</h1>
-
-      <p>Approve, Reject or Cancel employee leave requests.</p>
-
-    </div>
-
-    <!-- ==========================
-                SUMMARY CARDS
-        ========================== -->
-
-    <section class="summary-cards">
-
-      <div class="card">
-
-        <h3>Pending Requests</h3>
-
-        <h2 id="pendingCount">0</h2>
+        <strong id="pendingCount">
+          0
+        </strong>
 
       </div>
 
-      <div class="card">
 
-        <h3>Approved Leaves</h3>
+      <div class="summary-card approved-card">
 
-        <h2 id="approvedCount">0</h2>
+        <h3>
+          Approved Leaves
+        </h3>
+
+        <strong id="approvedCount">
+          0
+        </strong>
 
       </div>
 
-      <div class="card">
 
-        <h3>Rejected Leaves</h3>
+      <div class="summary-card rejected-card">
 
-        <h2 id="rejectedCount">0</h2>
+        <h3>
+          Rejected Leaves
+        </h3>
+
+        <strong id="rejectedCount">
+          0
+        </strong>
 
       </div>
 
     </section>
 
-    <!-- ==========================
-                SEARCH
-        ========================== -->
 
-    <section class="search-section">
+    <!-- LEAVE REQUEST TABLE -->
 
-      <input type="text" id="searchInput" placeholder="Search by Employee ID or Name...">
+    <section class="table-card">
+
+      <div class="table-header">
+
+        <h2>
+          Leave Requests
+        </h2>
+
+        <span id="requestCount">
+          0 Requests
+        </span>
+
+      </div>
+
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Employee ID</th>
+
+              <th>Employee Name</th>
+
+              <th>Department</th>
+
+              <th>Leave Type</th>
+
+              <th>Total Days</th>
+
+              <th>Status</th>
+
+              <th>Actions</th>
+
+            </tr>
+
+          </thead>
+
+
+          <!-- THIS ID MUST MATCH JS -->
+
+          <tbody id="leaveTableBody">
+
+          </tbody>
+
+        </table>
+
+      </div>
 
     </section>
 
-    <!-- ==========================
-                TABLE
-        ========================== -->
 
-    <section class="table-container">
+  </div>
 
-      <table>
 
-        <thead>
+  <!-- SHARED LEAVE DATA -->
 
-          <tr>
+  <script src="JS/leave-data.js"></script>
 
-            <th>Employee ID</th>
+  <!-- APPROVAL LOGIC -->
 
-            <th>Name</th>
+  <script src="JS/leave-approval.js"></script>
 
-            <th>Department</th>
-
-            <th>Leave Type</th>
-
-            <th>From Date</th>
-
-            <th>To Date</th>
-
-            <th>Total Days</th>
-
-            <th>Status</th>
-
-            <th>Actions</th>
-
-          </tr>
-
-        </thead>
-
-        <tbody id="leaveApprovalTable">
-
-          <!-- JavaScript -->
-
-        </tbody>
-
-      </table>
-
-    </section>
-
-  </main>
-
-  <!-- ==========================
-            SCRIPTS
-    ========================== -->
-
-  <script src="../Employee-Directory/JS/employee-data.js"></script>
-
-  <script src="../JS/leave-data.js"></script>
-
-  <script src="../JS/attendance.js"></script>
-
-  <script src="../JS/leave-management.js"></script>
-
-  <script src="../JS/leave-approval.js"></script>
 
 </body>
 

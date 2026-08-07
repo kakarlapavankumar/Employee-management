@@ -1,7 +1,11 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const tableBody = document.getElementById("leaveTableBody");
+  // ============================================
+  // GET HTML ELEMENTS
+  // ============================================
+
+  const leaveTableBody = document.getElementById("leaveTableBody");
 
   const pendingCount = document.getElementById("pendingCount");
 
@@ -11,185 +15,214 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const requestCount = document.getElementById("requestCount");
 
-  /*
-        ====================================================
-        RENDER
-        ====================================================
-        */
+  // ============================================
+  // SAFETY CHECK
+  // ============================================
+
+  if (!leaveTableBody) {
+    console.error(
+      "ERROR: #leaveTableBody was not found in leave-approval.html",
+    );
+
+    return;
+  }
+
+  // ============================================
+  // RENDER LEAVE REQUESTS
+  // ============================================
 
   function renderLeaveRequests() {
-    tableBody.innerHTML = "";
+    leaveTableBody.innerHTML = "";
 
-    requestCount.textContent = `${leaveRequests.length} Request${leaveRequests.length === 1 ? "" : "s"}`;
+    if (!Array.isArray(leaveRequests) || leaveRequests.length === 0) {
+      leaveTableBody.innerHTML = `
 
-    if (leaveRequests.length === 0) {
-      tableBody.innerHTML = `
+                <tr>
 
-                    <tr>
+                    <td colspan="7" class="no-data">
 
-                        <td
-                            colspan="7"
-                            class="empty-message"
-                        >
-                            No leave requests available.
-                        </td>
+                        No leave requests found.
 
-                    </tr>
+                    </td>
 
-                `;
+                </tr>
+
+            `;
 
       updateSummary();
 
       return;
     }
 
-    const sortedRequests = [...leaveRequests].sort(function (a, b) {
-      return new Date(b.appliedOn) - new Date(a.appliedOn);
-    });
-
-    sortedRequests.forEach(function (leave) {
+    leaveRequests.forEach(function (leave, index) {
       const row = document.createElement("tr");
 
       row.innerHTML = `
 
-                        <td>
-                            ${escapeHTML(leave.employeeId)}
-                        </td>
+                <td>
+                    ${leave.employeeId || "-"}
+                </td>
 
-                        <td>
-                            ${escapeHTML(leave.employeeName)}
-                        </td>
 
-                        <td>
-                            ${escapeHTML(leave.department)}
-                        </td>
+                <td>
+                    ${leave.employeeName || "-"}
+                </td>
 
-                        <td>
-                            ${escapeHTML(leave.leaveType)}
-                        </td>
 
-                        <td>
-                            ${leave.totalDays}
-                        </td>
+                <td>
+                    ${leave.department || "-"}
+                </td>
 
-                        <td>
 
-                            <span class="status-badge ${getStatusClass(leave.status)}">
+                <td>
+                    ${leave.leaveType || "-"}
+                </td>
 
-                                ${escapeHTML(leave.status)}
 
-                            </span>
+                <td>
+                    ${leave.totalDays || 0}
+                </td>
 
-                        </td>
 
-                        <td>
+                <td>
 
-                            <div class="actions">
+                    <span class="status-badge ${getStatusClass(leave.status)}">
 
-                                <button
-                                    class="action-btn approve-btn"
-                                    onclick="changeLeaveStatus('${leave.id}', 'Approved')"
-                                    ${leave.status === "Approved" ? "disabled" : ""}
-                                >
-                                    Approve
-                                </button>
+                        ${leave.status || "Pending"}
 
-                                <button
-                                    class="action-btn reject-btn"
-                                    onclick="changeLeaveStatus('${leave.id}', 'Rejected')"
-                                    ${leave.status === "Rejected" ? "disabled" : ""}
-                                >
-                                    Reject
-                                </button>
+                    </span>
 
-                                <button
-                                    class="action-btn cancel-btn"
-                                    onclick="changeLeaveStatus('${leave.id}', 'Cancelled')"
-                                    ${leave.status === "Cancelled" ? "disabled" : ""}
-                                >
-                                    Cancel
-                                </button>
+                </td>
 
-                            </div>
 
-                        </td>
+                <td class="action-buttons">
 
-                    `;
+                    <button
+                        class="approve-btn"
+                        onclick="approveLeave(${index})"
+                    >
+                        Approve
+                    </button>
 
-      tableBody.appendChild(row);
+
+                    <button
+                        class="reject-btn"
+                        onclick="rejectLeave(${index})"
+                    >
+                        Reject
+                    </button>
+
+
+                    <button
+                        class="cancel-btn"
+                        onclick="cancelLeave(${index})"
+                    >
+                        Cancel
+                    </button>
+
+                </td>
+
+            `;
+
+      leaveTableBody.appendChild(row);
     });
 
     updateSummary();
   }
 
-  /*
-        ====================================================
-        STATUS CLASS
-        ====================================================
-        */
+  // ============================================
+  // STATUS CLASS
+  // ============================================
 
   function getStatusClass(status) {
-    switch (status) {
-      case "Pending":
-        return "pending";
-
-      case "Approved":
-        return "approved";
-
-      case "Rejected":
-        return "rejected";
-
-      case "Cancelled":
-        return "cancelled";
-
-      default:
-        return "";
+    if (status === "Approved") {
+      return "approved";
     }
+
+    if (status === "Rejected") {
+      return "rejected";
+    }
+
+    return "pending";
   }
 
-  /*
-        ====================================================
-        UPDATE STATUS
-        ====================================================
-        */
-
-  window.changeLeaveStatus = function (leaveId, status) {
-    const success = updateLeaveStatus(leaveId, status);
-
-    if (success) {
-      renderLeaveRequests();
-    }
-  };
-
-  /*
-        ====================================================
-        SUMMARY
-        ====================================================
-        */
+  // ============================================
+  // UPDATE SUMMARY
+  // ============================================
 
   function updateSummary() {
-    const counts = getLeaveCounts();
+    const pending = leaveRequests.filter(
+      (leave) => leave.status === "Pending",
+    ).length;
 
-    pendingCount.textContent = counts.pending;
+    const approved = leaveRequests.filter(
+      (leave) => leave.status === "Approved",
+    ).length;
 
-    approvedCount.textContent = counts.approved;
+    const rejected = leaveRequests.filter(
+      (leave) => leave.status === "Rejected",
+    ).length;
 
-    rejectedCount.textContent = counts.rejected;
+    pendingCount.innerText = pending;
+
+    approvedCount.innerText = approved;
+
+    rejectedCount.innerText = rejected;
+
+    requestCount.innerText = `${leaveRequests.length} Requests`;
   }
 
-  /*
-        ====================================================
-        ESCAPE HTML
-        ====================================================
-        */
+  // ============================================
+  // APPROVE
+  // ============================================
 
-  function escapeHTML(value) {
-    const div = document.createElement("div");
+  window.approveLeave = function (index) {
+    if (!leaveRequests[index]) {
+      return;
+    }
 
-    div.textContent = value == null ? "" : value;
+    leaveRequests[index].status = "Approved";
 
-    return div.innerHTML;
-  }
+    saveLeaves();
+
+    renderLeaveRequests();
+  };
+
+  // ============================================
+  // REJECT
+  // ============================================
+
+  window.rejectLeave = function (index) {
+    if (!leaveRequests[index]) {
+      return;
+    }
+
+    leaveRequests[index].status = "Rejected";
+
+    saveLeaves();
+
+    renderLeaveRequests();
+  };
+
+  // ============================================
+  // CANCEL
+  // ============================================
+
+  window.cancelLeave = function (index) {
+    if (!leaveRequests[index]) {
+      return;
+    }
+
+    leaveRequests[index].status = "Cancelled";
+
+    saveLeaves();
+
+    renderLeaveRequests();
+  };
+
+  // ============================================
+  // INITIAL RENDER
+  // ============================================
 
   renderLeaveRequests();
 });

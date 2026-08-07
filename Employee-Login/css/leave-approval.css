@@ -6,24 +6,39 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+
   background: #f4f7fb;
+
   color: #1f2937;
 }
 
 .page-container {
   width: 94%;
+
   max-width: 1400px;
+
   margin: 35px auto;
 }
 
+/* =========================================
+   HEADER
+========================================= */
+
 .page-header {
   background: white;
+
   padding: 25px 30px;
+
   border-radius: 12px;
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
   margin-bottom: 25px;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
@@ -37,36 +52,61 @@ body {
 
 .header-actions {
   display: flex;
+
   gap: 10px;
+
+  flex-wrap: wrap;
 }
 
 .header-actions a {
   background: #2563eb;
+
   color: white;
+
   text-decoration: none;
+
   padding: 11px 16px;
+
   border-radius: 7px;
+
   font-size: 14px;
 }
 
+.header-actions a:hover {
+  background: #1d4ed8;
+}
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
 .summary-grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 20px;
+
   margin-bottom: 25px;
 }
 
 .summary-card {
   background: white;
+
   padding: 25px;
+
   border-radius: 12px;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
   border-left: 5px solid;
 }
 
 .summary-card span {
   display: block;
+
   color: #6b7280;
+
   margin-bottom: 10px;
 }
 
@@ -86,17 +126,32 @@ body {
   border-color: #ef4444;
 }
 
+/* =========================================
+   TABLE
+========================================= */
+
 .table-card {
   background: white;
+
   border-radius: 12px;
+
   padding: 25px;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 .table-header {
   display: flex;
+
   justify-content: space-between;
+
+  align-items: center;
+
   margin-bottom: 20px;
+}
+
+.table-header h2 {
+  color: #111827;
 }
 
 .table-header span {
@@ -109,19 +164,24 @@ body {
 
 table {
   width: 100%;
+
   border-collapse: collapse;
+
   min-width: 1000px;
 }
 
 th,
 td {
   padding: 14px;
+
   text-align: left;
+
   border-bottom: 1px solid #e5e7eb;
 }
 
 th {
   background: #f9fafb;
+
   font-size: 14px;
 }
 
@@ -129,79 +189,130 @@ td {
   font-size: 14px;
 }
 
+/* =========================================
+   STATUS BADGES
+========================================= */
+
 .status-badge {
   display: inline-block;
+
   padding: 6px 12px;
+
   border-radius: 20px;
+
   font-size: 12px;
+
   font-weight: bold;
 }
 
 .status-badge.pending {
   background: #fef3c7;
+
   color: #92400e;
 }
 
 .status-badge.approved {
   background: #dcfce7;
+
   color: #166534;
 }
 
 .status-badge.rejected {
   background: #fee2e2;
+
   color: #991b1b;
 }
 
 .status-badge.cancelled {
   background: #e5e7eb;
+
   color: #374151;
 }
 
+/* =========================================
+   ACTIONS
+========================================= */
+
 .actions {
   display: flex;
+
   gap: 6px;
+
   flex-wrap: wrap;
 }
 
 .action-btn {
   border: none;
+
   padding: 7px 10px;
+
   border-radius: 5px;
+
   cursor: pointer;
+
   font-size: 12px;
+
   font-weight: bold;
 }
 
 .action-btn:disabled {
   opacity: 0.45;
+
   cursor: not-allowed;
 }
 
 .approve-btn {
   background: #dcfce7;
+
   color: #166534;
+}
+
+.approve-btn:hover {
+  background: #bbf7d0;
 }
 
 .reject-btn {
   background: #fee2e2;
+
   color: #991b1b;
+}
+
+.reject-btn:hover {
+  background: #fecaca;
 }
 
 .cancel-btn {
   background: #e5e7eb;
+
   color: #374151;
 }
 
+.cancel-btn:hover {
+  background: #d1d5db;
+}
+
+/* =========================================
+   EMPTY MESSAGE
+========================================= */
+
 .empty-message {
   text-align: center;
+
   padding: 40px;
+
   color: #6b7280;
 }
+
+/* =========================================
+   RESPONSIVE
+========================================= */
 
 @media (max-width: 800px) {
   .page-header {
     flex-direction: column;
+
     align-items: flex-start;
+
     gap: 20px;
   }
 
