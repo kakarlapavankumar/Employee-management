@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Employee Profile</title>
+
+
+  <link rel="stylesheet" href="CSS/employee-profile.css">
+
+
+</head>
+
+
+<body>
+
+
+  <div class="container">
+
+
+    <header class="header">
+
+      <h1>
+        Employee Profile & Reports
+      </h1>
+
+
+      <a href="dashboard.html">
+        Back to Dashboard
+      </a>
+
+
+    </header>
+
+
+
+
+    <!-- EMPLOYEE PROFILE -->
+
+
+    <section class="profile-card">
+
+
+      <h2>
+        Employee Details
+      </h2>
+
+
+
+      <div id="employeeDetails" class="details-grid">
+
+
+      </div>
+
+
+
+    </section>
+
+
+
+
+
+
+    <!-- LEAVE HISTORY -->
+
+
+    <section class="profile-card">
+
+
+      <h2>
+        Leave History
+      </h2>
+
+
+
+      <table>
+
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Leave Type
+            </th>
+
+            <th>
+              From Date
+            </th>
+
+            <th>
+              To Date
+            </th>
+
+            <th>
+              Days
+            </th>
+
+            <th>
+              Status
+            </th>
+
+
+          </tr>
+
+
+        </thead>
+
+
+
+        <tbody id="leaveHistory">
+
+
+        </tbody>
+
+
+
+      </table>
+
+
+    </section>
+
+
+
+
+
+
+
+    <!-- REPORT SECTION -->
+
+
+    <section class="profile-card">
+
+
+      <h2>
+        Attendance Reports
+      </h2>
+
+
+
+      <div class="report-grid">
+
+
+        <div class="report-box">
+
+          <h3>
+            Total Working Days
+          </h3>
+
+          <p id="workingDays">
+            0
+          </p>
+
+        </div>
+
+
+
+
+        <div class="report-box">
+
+          <h3>
+            Present Days
+          </h3>
+
+          <p id="presentDays">
+            0
+          </p>
+
+        </div>
+
+
+
+
+
+        <div class="report-box">
+
+          <h3>
+            Leave Days
+          </h3>
+
+          <p id="leaveDays">
+            0
+          </p>
+
+        </div>
+
+
+
+
+
+        <div class="report-box">
+
+          <h3>
+            Attendance Percentage
+          </h3>
+
+          <p>
+            <span id="attendancePercentage">
+              0
+            </span>%
+          </p>
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </section>
+
+
+
+
+
+
+
+    <div class="actions">
+
+
+      <button onclick="printProfile()">
+
+        Print Profile
+
+      </button>
+
+
+
+      <button onclick="downloadProfile()">
+
+        Download Profile
+
+      </button>
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+  <!-- Existing Data Files -->
+
+  <script src="JS/employee-data.js"></script>
+
+  <script src="JS/attendance.js"></script>
+
+  <script src="JS/leave-data.js"></script>
+
+
+  <script src="JS/employee-profile.js"></script>
+
+
+
+</body>
+
+</html>

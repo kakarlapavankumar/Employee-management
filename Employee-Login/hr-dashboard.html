@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HR Dashboard</title>
+
+  <link rel="stylesheet" href="CSS/hr-dashboard.css">
+
+</head>
+
+<body>
+
+  <div class="page-container">
+
+
+    <!-- HEADER -->
+
+    <header class="dashboard-header">
+
+      <div>
+
+        <h1>HR Dashboard</h1>
+
+        <p>
+          Employee Management Overview
+        </p>
+
+      </div>
+
+      <nav>
+
+        <a href="dashboard.html">
+          Dashboard
+        </a>
+
+        <a href="leave-management.html">
+          Apply Leave
+        </a>
+
+        <a href="leave-approval.html">
+          Leave Approval
+        </a>
+
+      </nav>
+
+    </header>
+
+
+    <!-- STATISTICS -->
+
+    <section class="stats-grid">
+
+
+      <div class="stat-card">
+
+        <div class="stat-content">
+
+          <span>Total Employees</span>
+
+          <strong id="totalEmployees">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-content">
+
+          <span>Present Today</span>
+
+          <strong id="presentToday">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-content">
+
+          <span>Employees on Leave</span>
+
+          <strong id="employeesOnLeave">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-content">
+
+          <span>Pending Leave Requests</span>
+
+          <strong id="pendingLeaves">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-content">
+
+          <span>Departments</span>
+
+          <strong id="departmentCount">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-content">
+
+          <span>Active Employees</span>
+
+          <strong id="activeEmployees">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RECENT ACTIVITIES -->
+
+    <section class="activity-card">
+
+      <div class="section-header">
+
+        <div>
+
+          <h2>Recent Activities</h2>
+
+          <p>
+            Latest employee, leave and attendance activities
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Activity</th>
+              <th>Employee</th>
+              <th>Date</th>
+              <th>Status</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody id="activityTableBody"></tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <!-- IMPORTANT:
+         Employee data must load before attendance.js.
+    -->
+
+  <script src="../Employee-Directory/JS/employee-data.js"></script>
+
+  <script src="JS/leave-data.js"></script>
+
+  <script src="JS/attendance.js"></script>
+
+  <script src="JS/hr-dashboard.js"></script>
+
+</body>
+
+</html>

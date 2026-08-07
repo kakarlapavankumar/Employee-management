@@ -2,21 +2,296 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leave</title>
+
+  <title>Leave Approval Dashboard</title>
+
+
+  <!-- CSS PATH -->
+  <link rel="stylesheet" href="../CSS/leave-approval.css">
+
 </head>
+
 
 <body>
 
-  <h1>Leave Management</h1>
 
-  <p>Leave module coming soon.</p>
+  <div class="page-container">
 
-  <a href="../dashboard.html">
-    Back to Dashboard
-  </a>
+
+    <!-- HEADER -->
+
+    <header class="page-header">
+
+
+      <div>
+
+        <h1>
+          Leave Approval Dashboard
+        </h1>
+
+
+        <p>
+          HR Leave Request Management
+        </p>
+
+      </div>
+
+
+
+      <div class="header-actions">
+
+
+        <a href="../leave-management.html">
+          Apply Leave
+        </a>
+
+
+        <a href="../hr-dashboard.html">
+          HR Dashboard
+        </a>
+
+
+        <a href="../dashboard.html">
+          Back Dashboard
+        </a>
+
+
+      </div>
+
+
+    </header>
+
+
+
+
+    <!-- SUMMARY CARDS -->
+
+
+    <section class="summary-grid">
+
+
+      <div class="summary-card pending-card">
+
+
+        <span>
+          Pending Requests
+        </span>
+
+
+        <strong id="pendingCount">
+          0
+        </strong>
+
+
+      </div>
+
+
+
+
+
+      <div class="summary-card approved-card">
+
+
+        <span>
+          Approved Leaves
+        </span>
+
+
+        <strong id="approvedCount">
+          0
+        </strong>
+
+
+      </div>
+
+
+
+
+
+
+      <div class="summary-card rejected-card">
+
+
+        <span>
+          Rejected Leaves
+        </span>
+
+
+        <strong id="rejectedCount">
+          0
+        </strong>
+
+
+      </div>
+
+
+
+    </section>
+
+
+
+
+
+
+    <!-- SEARCH FILTER -->
+
+
+    <section class="table-card">
+
+
+      <div class="table-header">
+
+
+        <h2>
+          Leave Requests
+        </h2>
+
+
+        <span id="requestCount">
+          0 Requests
+        </span>
+
+
+      </div>
+
+
+
+
+
+      <div class="filters">
+
+
+        <input type="text" id="searchEmployee" placeholder="Search Employee ID">
+
+
+
+        <select id="statusFilter">
+
+
+          <option value="All">
+            All Status
+          </option>
+
+
+          <option value="Pending">
+            Pending
+          </option>
+
+
+          <option value="Approved">
+            Approved
+          </option>
+
+
+          <option value="Rejected">
+            Rejected
+          </option>
+
+
+        </select>
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="table-wrapper">
+
+
+        <table>
+
+
+          <thead>
+
+
+            <tr>
+
+
+              <th>
+                Employee ID
+              </th>
+
+
+              <th>
+                Employee Name
+              </th>
+
+
+              <th>
+                Department
+              </th>
+
+
+              <th>
+                Leave Type
+              </th>
+
+
+              <th>
+                Total Days
+              </th>
+
+
+              <th>
+                Status
+              </th>
+
+
+              <th>
+                Actions
+              </th>
+
+
+            </tr>
+
+
+          </thead>
+
+
+
+
+
+          <tbody id="leaveTableBody">
+
+
+          </tbody>
+
+
+
+        </table>
+
+
+      </div>
+
+
+    </section>
+
+
+
+  </div>
+
+
+
+
+
+  <!-- JAVASCRIPT PATH -->
+
+  <script src="../JS/leave-data.js"></script>
+
+  <script src="../JS/leave-approval.js"></script>
+
+
 
 </body>
+
 
 </html>
